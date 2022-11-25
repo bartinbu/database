@@ -5,7 +5,6 @@ cat ~/.ssh/id_rsa.pub
 echo "-----------------------------------------Press enter after copy.--------------------------------------------"
 read pulse
 cd Desktop/database
-
 git config --global init.defaultBranch origin main
 git config --global user.email "raspberrypi.bartin@gmail.com"
 git config --global user.name "bartinbu"
