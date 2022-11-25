@@ -15,9 +15,9 @@ from datetime import datetime
 
 from pathlib import Path
 import configparser
-configPath = str(Path.home())+"/Desktop/config.ini"
+
 config = configparser.ConfigParser()
-config.read(configPath)
+config.read("config.ini")
 '''
 config = configparser.ConfigParser()
 config.add_section('NODEINFO')
@@ -42,7 +42,6 @@ def appendData(nodeName, sensorResponse):
         os.mkdir(nodeName)
     
     if not os.path.exists(nodeName+'/data.csv'):
-        print("hey")
         header = ['Time']
         for key in sensorResponse:
             header.append(key)
