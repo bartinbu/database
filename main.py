@@ -17,7 +17,7 @@ from pathlib import Path
 import configparser
 
 config = configparser.ConfigParser()
-config.read("config.ini")
+config.read("../config.ini")
 '''
 config = configparser.ConfigParser()
 config.add_section('NODEINFO')
