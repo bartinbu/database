@@ -9,6 +9,7 @@ git config --global init.defaultBranch origin main
 git config --global user.email "raspberrypi.bartin@gmail.com"
 git config --global user.name "bartinbu"
 git config --global pull.rebase false
+git remote set-url origin git@github.com:bartinbu/database.git
 cd ..
 echo "Node Name:"
 read nodeName
