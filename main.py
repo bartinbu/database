@@ -101,7 +101,7 @@ if __name__ == '__main__':
     for sensor in sensorList:
         sensorID += 1
         arr = readFromFromRD_SMT_P_O(sensor)
-        sensorResponse["Sensor"+sensorID] = arr
+        sensorResponse["Sensor"+str(sensorID)] = arr
     if len(sensorResponse) != 0:
         nodeName = getNodeName()
         appendData(nodeName, sensorResponse)
