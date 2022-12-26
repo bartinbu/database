@@ -1,4 +1,5 @@
 cd ~
+pip install -r requirements.txt
 ssh-keygen -t rsa
 echo "------------------------Go to github settings and click 'add SSH key' with this key.------------------------"
 cat ~/.ssh/id_rsa.pub
