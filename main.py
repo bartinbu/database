@@ -3,15 +3,12 @@ import serial
 import serial.tools.list_ports
 import glob
 import sys
-import time
+import minimalmodbus
 import os
 import csv
 import glob
 from datetime import datetime
 
-# datetime object containing current date and time
-
- 
 
 from pathlib import Path
 import configparser
@@ -78,6 +75,17 @@ def serial_ports():
         except (OSError, serial.SerialException):
             pass
     return result
+def readFromFromRD_SMT_P_O(serialPort):
+    serialPort.serial.baudrate = 9600  # baudrate
+    serialPort.serial.bytesize = 8
+    serialPort.serial.parity   = serial.PARITY_NONE
+    serialPort.serial.stopbits = 1
+    serialPort.serial.timeout  = 0.1      # seconds
+    serialPort.address         = 1        # this is the slave address number
+    serialPort.mode = minimalmodbus.MODE_RTU # rtu or ascii mode
+    serialPort.clear_buffers_before_each_transaction = True
+    return client1.read_registers(registeraddress=0,number_of_registers=2,functioncode=3)
+
 
 
 if __name__ == '__main__':
@@ -85,14 +93,17 @@ if __name__ == '__main__':
     ports = serial_ports()
     for port in ports:
         try:
-            portcon = serial.Serial(port)
-            portcon.timeout = 10
+            portcon = client1 = minimalmodbus.Instrument(port=port, slaveaddress=1, debug=False)  # port name, slave address (in decimal)
             sensorList.append(portcon)
         except:
             pass
     sensorResponse = {}
-    for sensor in sensorList:  # print data from all sensors
-        byte = sensor.readline()
-        sensorResponse[sensor.name] = byte.decode().replace("\n", "").replace("\r","")
+    for sensor in sensorList:
+        arr = readFromFromRD_SMT_P_O(sensor)
+        sensorResponse[sensor.name] = arr
     nodeName = getNodeName()
     appendData(nodeName, sensorResponse)
+
+
+
+
