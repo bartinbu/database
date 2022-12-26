@@ -97,12 +97,11 @@ if __name__ == '__main__':
         except:
             pass
     sensorResponse = {}
+    sensorID = 0
     for sensor in sensorList:
+        sensorID += 1
         arr = readFromFromRD_SMT_P_O(sensor)
-        sensorResponse[sensor.serial.name] = arr
-    nodeName = getNodeName()
-    appendData(nodeName, sensorResponse)
-
-
-
-
+        sensorResponse["Sensor"+sensorID] = arr
+    if len(sensorResponse) != 0:
+        nodeName = getNodeName()
+        appendData(nodeName, sensorResponse)
