@@ -70,8 +70,7 @@ def serial_ports():
         try:
             s = serial.Serial(port)
             s.close()
-            if "USB" in port:  # this part is for linux
-                result.append(port)
+            result.append(port)
         except (OSError, serial.SerialException):
             pass
     return result
@@ -90,7 +89,7 @@ def readFromFromRD_SMT_P_O(serialPort):
 
 if __name__ == '__main__':
     sensorList = []
-    ports = serial_ports()
+    ports = filter(lambda x: 'ttyUSB' in x, serial_ports())  
     for port in ports:
         try:
             portcon = client1 = minimalmodbus.Instrument(port=port, slaveaddress=1, debug=False)  # port name, slave address (in decimal)
@@ -100,7 +99,7 @@ if __name__ == '__main__':
     sensorResponse = {}
     for sensor in sensorList:
         arr = readFromFromRD_SMT_P_O(sensor)
-        sensorResponse[sensor.name] = arr
+        sensorResponse[sensor.serial.name] = arr
     nodeName = getNodeName()
     appendData(nodeName, sensorResponse)
 
