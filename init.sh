@@ -1,11 +1,11 @@
 cd ~
-pip install -r requirements.txt
 ssh-keygen -t rsa
 echo "------------------------Go to github settings and click 'add SSH key' with this key.------------------------"
 cat ~/.ssh/id_rsa.pub
 echo "-----------------------------------------Press enter after copy.--------------------------------------------"
 read pulse
 cd Desktop/database
+pip install -r requirements.txt
 git config --global init.defaultBranch origin main
 git config --global user.email "raspberrypi.bartin@gmail.com"
 git config --global user.name "bartinbu"
