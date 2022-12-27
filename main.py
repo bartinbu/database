@@ -101,7 +101,7 @@ if __name__ == '__main__':
     for sensor in sensorList:
         sensorID += 1
         arr = readFromFromRD_SMT_P_O(sensor)
-	array = [str(arr[0]/10)+"%",((arr[1]/1000)*120)-40]
+	array = [str(arr[0]/10)+"%",str((((arr[1]/1000)*120)-40))]
         sensorResponse["Sensor"+str(sensorID)] = array
     if len(sensorResponse) != 0:
         nodeName = getNodeName()
