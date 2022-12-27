@@ -83,7 +83,7 @@ def readFromFromRD_SMT_P_O(serialPort):
     serialPort.address         = 1        # this is the slave address number
     serialPort.mode = minimalmodbus.MODE_RTU # rtu or ascii mode
     serialPort.clear_buffers_before_each_transaction = True
-    return client1.read_registers(registeraddress=0,number_of_registers=2,functioncode=3)
+    return serialPort.read_registers(registeraddress=0,number_of_registers=2,functioncode=3)
 
 
 
@@ -92,7 +92,7 @@ if __name__ == '__main__':
     ports = filter(lambda x: 'ttyUSB' in x, serial_ports())  
     for port in ports:
         try:
-            portcon = client1 = minimalmodbus.Instrument(port=port, slaveaddress=1, debug=False)  # port name, slave address (in decimal)
+            portcon = minimalmodbus.Instrument(port=port, slaveaddress=1, debug=False)  # port name, slave address (in decimal)
             sensorList.append(portcon)
         except:
             pass
