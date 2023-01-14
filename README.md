@@ -97,5 +97,5 @@ sudo haklarıyla init.sh dosyasını çalıştırın.
 ```sh
 ./sync.sh
 ```
-
+ilk eşitlemede yes demeniz gerkmektedir. 
 Sistem her 1 dakikada bir veri gönderecektir.
