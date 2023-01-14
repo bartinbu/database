@@ -18,7 +18,7 @@
 ### Raspberry Pi kurulumu
 
 Raspberry pi önerilen dağıtımı Raspberry pi imaj yöneticisi ile kurun.
-Drive linkinden kurulum dosylarını indirin ve arşivden çıkarın.
+[Drive](https://drive.google.com/file/d/1MwOQPS_AYD92W2GKPYwThBw7UUbwXvsc/view?usp=sharing) linkinden kurulum dosylarını indirin ve arşivden çıkarın.
 
 Çıkartılan gsmsetup isimli klasör mutlaka masaüstünde olmalı ve kurulumdan sonra silinmemeli !
 Raspberrydeki kullanıcı adı mutlaka pi olmalı değiştirilirse çalışmayacaktır.
