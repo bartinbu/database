@@ -13,6 +13,8 @@
 
 
   
+
+  
 ### Raspberry Pi kurulumu
 
 Raspberry pi önerilen dağıtımı Raspberry pi imaj yöneticisi ile kurun.
@@ -35,7 +37,7 @@ Masaüstünde terminal açın
 
 Proje dizinine gidin
 ```bash
-  cd gsmsetup
+cd gsmsetup
 ```
 Kuruluma başlamadan önce bluetooth servislerini devre dışı bırakmak için aşağıda ki komutu çalıştırın.
 ```sh
@@ -62,4 +64,38 @@ GSM bağlantısını kontrol etmek için pingtest.sh scriptini çalıştırabili
 ./pingtest.sh
 ``` 
 ### Veri Tabanı deposunun kurulması
+Masaüstünde terminal açın.
+Depoyu klonlayın
+```git
+git clone https://github.com/bartinbu/database.git
+``` 
 
+Klasörün içine girin
+```git
+cd database
+``` 
+install.sh dosyasına +x modu ekleyin
+```sh
+chmod +x init.sh
+```
+sync.sh dosyasına +x modu ekleyin
+```sh
+sudo +x sync.sh
+```
+sudo haklarıyla init.sh dosyasını çalıştırın.
+```sh
+sudo ./init.sh
+```
+
+
+Kurulum esnasında size bir ssh key verilecek bu keyi githubın ayarlar kısmında SSH and GPG keys kısmına ekleyin.
+
+Yine Kurulum kısmında size Node Name soracaktır bu da istasyonun adı olacak diğer istasyon adlarından farklı bir isim kullanmalısınız yoksa çakışma olacak ve her iki istasyonda da baştan kurulum yapılması gerekecektir.
+
+Kurulum işlemi bittikten sonra cihazları bağlayıp ilk sync işlemini yapmalısınız.
+sudo haklarıyla init.sh dosyasını çalıştırın.
+```sh
+./sync.sh
+```
+
+Sistem her 1 dakikada bir veri gönderecektir.
