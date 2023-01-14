@@ -20,6 +20,11 @@ Drive linkinden kurulum dosylarını indirin ve arşivden çıkarın.
 
 Çıkartılan gsmsetup isimli klasör mutlaka masaüstünde olmalı ve kurulumdan sonra silinmemeli !
 Raspberrydeki kullanıcı adı mutlaka pi olmalı değiştirilirse çalışmayacaktır.
+![Alt text](/Images/Resim1.jpg?raw=true "Optional Title")
+![Alt text](/Images/Resim2.jpg?raw=true "Optional Title")
+![Alt text](/Images/Resim3.jpg?raw=true "Optional Title")
+![Alt text](/Images/Resim4.jpg?raw=true "Optional Title")
+
 ### Gsm Modülün Kurulması
 Gsm modülün ilk kurulumunda internete ihtiyaç vardır bu yüzden wifi ile veya ethernet kablosu ile internete bağlayın.
 
