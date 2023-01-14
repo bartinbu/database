@@ -20,6 +20,7 @@ Drive linkinden kurulum dosylarını indirin ve arşivden çıkarın.
 
 Çıkartılan gsmsetup isimli klasör mutlaka masaüstünde olmalı ve kurulumdan sonra silinmemeli !
 Raspberrydeki kullanıcı adı mutlaka pi olmalı değiştirilirse çalışmayacaktır.
+
 ![Alt text](/Images/Resim1.png?raw=true "Optional Title")
 ![Alt text](/Images/Resim2.png?raw=true "Optional Title")
 ![Alt text](/Images/Resim3.png?raw=true "Optional Title")
