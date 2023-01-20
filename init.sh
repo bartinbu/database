@@ -6,7 +6,7 @@ echo "------------------------Go to github settings and click 'add SSH key' with
 cat ~/.ssh/id_rsa.pub
 echo "-----------------------------------------Press enter after copy.--------------------------------------------"
 read pulse
-cd ~/Desktop/database
+cd /home/pi/Desktop/database
 git config --global init.defaultBranch origin main
 git config --global user.email "raspberrypi.bartin@gmail.com"
 git config --global user.name "bartinbu"
@@ -21,4 +21,4 @@ echo "[NODEINFO]
 nodename = $nodeName
 sensorsize = 5
 ">config.ini
-(crontab -l; echo "* * * * * ~/Desktop/database/sync.sh") | sort -u | crontab -
+(crontab -l; echo "* * * * * /home/pi/Desktop/database/sync.sh") | sort -u | crontab -
