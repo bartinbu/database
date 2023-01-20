@@ -80,7 +80,7 @@ chmod +x init.sh
 ```
 sync.sh dosyasına +x modu ekleyin
 ```sh
-sudo +x sync.sh
+chmod +x sync.sh
 ```
 sudo haklarıyla init.sh dosyasını çalıştırın.
 ```sh
