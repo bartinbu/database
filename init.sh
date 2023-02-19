@@ -14,7 +14,7 @@ git config --global pull.rebase false
 git remote set-url origin git@github.com:bartinbu/database.git
 git branch $nodeName
 git checkout $nodeName
-git push --set-upstream origin istasyon2
+git push --set-upstream origin $nodeName
 pip install -r requirements.txt
 cd ..
 echo "[NODEINFO]
