@@ -21,5 +21,4 @@ echo "[NODEINFO]
 nodename = $nodeName
 sensorsize = 5
 ">config.ini
-(crontab -l; echo "* * * * * /home/pi/database/sync.sh") | sort -u | crontab -
-(crontab -l; echo "* * * * * /home/pi/database/sync.sh") | sort -u | crontab -
+(sudo crontab -l; echo "* * * * * /home/pi/database/sync.sh") | sort -u | sudo crontab -
