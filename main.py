@@ -100,7 +100,7 @@ def readHumiditySensors(ports):
         array = [str(arr[0]/10)+"%",str((((arr[1]/1000)*120)-40))]
         sensorResponse["Sensor"+str(sensorID)] = array
     return sensorResponse
-def readDistanceSensors():
+def readDistanceSensors(ports):
     sensorList = []#Düzeltilecek
     for port in ports:
         try:
