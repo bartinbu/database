@@ -1,4 +1,4 @@
-
+#!/bin/bash
 cd /home/pi/database
 python3 "main.py"
 git add --all
