@@ -14,7 +14,7 @@ from pathlib import Path
 import configparser
 
 config = configparser.ConfigParser()
-config.read("../config.ini")
+config.read("config.ini")
 '''
 config = configparser.ConfigParser()
 config.add_section('NODEINFO')
@@ -27,8 +27,8 @@ with open(configPath, 'w+') as configfile:
 
 def getNodeName():
     return config['NODEINFO']['NODENAME']
-
-
+def getNodeType():
+    return config['NODEINFO']['NODETYPE']
 def getSensorSize():
     return config['NODEINFO']['NODENAME']
 
@@ -84,12 +84,8 @@ def readFromFromRD_SMT_P_O(serialPort):
     serialPort.mode = minimalmodbus.MODE_RTU # rtu or ascii mode
     serialPort.clear_buffers_before_each_transaction = True
     return serialPort.read_registers(registeraddress=0,number_of_registers=2,functioncode=3)
-
-
-
-if __name__ == '__main__':
+def readHumiditySensors(ports):
     sensorList = []
-    ports = filter(lambda x: 'ttyUSB' in x, serial_ports())  
     for port in ports:
         try:
             portcon = minimalmodbus.Instrument(port=port, slaveaddress=1, debug=False)  # port name, slave address (in decimal)
@@ -103,6 +99,31 @@ if __name__ == '__main__':
         arr = readFromFromRD_SMT_P_O(sensor)
         array = [str(arr[0]/10)+"%",str((((arr[1]/1000)*120)-40))]
         sensorResponse["Sensor"+str(sensorID)] = array
+    return sensorResponse
+def readDistanceSensors():
+    sensorList = []#Düzeltilecek
+    for port in ports:
+        try:
+            portcon = minimalmodbus.Instrument(port=port, slaveaddress=1, debug=False)  # port name, slave address (in decimal)
+            sensorList.append(portcon)
+        except:
+            pass
+    sensorResponse = {}
+    sensorID = 0
+    for sensor in sensorList:
+        sensorID += 1
+        arr = readFromFromRD_SMT_P_O(sensor)
+        array = [str(arr[0]/10)+"%",str((((arr[1]/1000)*120)-40))]
+        sensorResponse["Sensor"+str(sensorID)] = array
+    return sensorResponse
+if __name__ == '__main__':
+    ports = filter(lambda x: 'ttyUSB' in x, serial_ports())
+    if (getNodeType() == "2"):
+        sensorResponse = readDistanceSensors(ports)
+    elif (getNodeType() == "1"):
+        sensorResponse = readHumiditySensors(ports)
+    else:
+        print("Wrong option")
     if len(sensorResponse) != 0:
         nodeName = getNodeName()
         appendData(nodeName, sensorResponse)
