@@ -27,7 +27,8 @@ with open(configPath, 'w+') as configfile:
 
 def getNodeName():
     return config['NODEINFO']['NODENAME']
-
+def getNodeType():
+    return config['NODEINFO']['NODETYPE']
 
 def getSensorSize():
     return config['NODEINFO']['NODENAME']
@@ -89,7 +90,7 @@ def readFromFromRD_SMT_P_O(serialPort):
 
 if __name__ == '__main__':
     sensorList = []
-    ports = filter(lambda x: 'ttyUSB' in x, serial_ports())  
+    ports = filter(lambda x: 'ttyUSB' in x, serial_ports()) 
     for port in ports:
         try:
             portcon = minimalmodbus.Instrument(port=port, slaveaddress=1, debug=False)  # port name, slave address (in decimal)

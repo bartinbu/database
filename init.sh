@@ -1,6 +1,11 @@
+#!/bin/bash
 cd ~
-echo "Node Name:"
+echo "Node Name"
 read nodeName
+echo "Node Type"
+echo "1 - Humidity Sensor"
+echo "2 - Distance sensor"
+read typeID
 ssh-keygen -t rsa
 echo "------------------------Go to github settings and click 'add SSH key' with this key.------------------------"
 cat ~/.ssh/id_rsa.pub
@@ -17,8 +22,19 @@ git checkout $nodeName
 git push --set-upstream origin $nodeName
 pip install -r requirements.txt
 cd ..
-echo "[NODEINFO]
-nodename = $nodeName
-sensorsize = 5
-">config.ini
-(sudo crontab -l; echo "* * * * * /home/pi/database/sync.sh") | sort -u | sudo crontab -
+if (( $typeID == 2 )) ; then
+    echo "[NODEINFO]
+    nodename = $nodeName Humidity
+    nodetype = $typeID
+    sensorsize = 5
+    ">config.ini
+elif (( $typeID == 1 )) ; then
+    echo "[NODEINFO]
+    nodename = $nodeName Distance
+    nodetype = $typeID
+    sensorsize = 5
+    ">config.ini
+else
+    echo "Invalid choice plase start again!"
+fi
+(crontab -l; echo "* * * * * /home/pi/database/sync.sh") | sort -u | crontab -
