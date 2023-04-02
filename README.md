@@ -84,7 +84,7 @@ chmod +x sync.sh
 ```
 sudo haklarıyla init.sh dosyasını çalıştırın.
 ```sh
-sudo ./init.sh
+./init.sh
 ```
 
 
