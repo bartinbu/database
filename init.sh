@@ -35,4 +35,4 @@ echo "[NODEINFO]
     nodetype = $typeID
     sensorsize = 5
     ">config.ini
-(crontab -l; echo "* * * * * /home/pi/database/sync.sh") | sort -u | crontab -
+(crontab -l; echo "* * * * * /home/pi/database/sync.sh >> /home/pi/database/run.log") | sort -u | crontab -
