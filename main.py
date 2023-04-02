@@ -74,6 +74,17 @@ def serial_ports():
         except (OSError, serial.SerialException):
             pass
     return result
+def readFromULT_3040(serialPort):
+    serialPort.serial.baudrate = 9600				# BaudRate
+    serialPort.serial.bytesize = 8					# Number of data bits to be requested
+    serialPort.serial.parity = minimalmodbus.serial.PARITY_NONE	# Parity Setting here is NONE but can be ODD or EVEN
+    serialPort.serial.stopbits = 1					# Number of stop bits
+    serialPort.serial.timeout  = 0.1					# Timeout time in seconds
+    serialPort.mode = minimalmodbus.MODE_RTU				# Mode to be used (RTU or ascii mode)
+    # Good practice to clean up before and after each execution
+    serialPort.clear_buffers_before_each_transaction = True
+    serialPort.close_port_after_each_call = True
+    return serialPort.read_register(2,0,4)
 def readFromFromRD_SMT_P_O(serialPort):
     serialPort.serial.baudrate = 9600  # baudrate
     serialPort.serial.bytesize = 8
@@ -112,9 +123,9 @@ def readDistanceSensors(ports):
     sensorID = 0
     for sensor in sensorList:
         sensorID += 1
-        arr = readFromFromRD_SMT_P_O(sensor)
-        array = [str(arr[0]/10)+"%",str((((arr[1]/1000)*120)-40))]
-        sensorResponse["Sensor"+str(sensorID)] = array
+        arr = readFromULT_3040(sensor)
+        print (arr)
+        sensorResponse["Sensor"+str(sensorID)] = arr
     return sensorResponse
 if __name__ == '__main__':
     ports = filter(lambda x: 'ttyUSB' in x, serial_ports())
