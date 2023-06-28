@@ -35,7 +35,7 @@ Gsm modülün ilk kurulumunda internete ihtiyaç vardır bu yüzden wifi ile vey
 
 gsmsetup.zip dosyasını raspberry pi'nin /home/pi dizinine aktarın 
 ```bash
-scp 
+wget https://github.com/bartinbu/gsmsetup/raw/main/gsmsetup.zip
 ```
 
 /home/pi dizininde terminal açın
