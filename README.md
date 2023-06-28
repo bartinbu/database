@@ -33,25 +33,19 @@ Bu ayarlar wifiye otomatik bağlanması için yapılmıştır. ssh ile bağlant�
 ### Gsm Modülün Kurulması
 Gsm modülün ilk kurulumunda internete ihtiyaç vardır bu yüzden wifi ile veya ethernet kablosu ile internete bağlayın.
 
-Masaüstünde terminal açın
+/home/pi dizininde terminal açın
 
-Proje dizinine gidin
+Zip dosyasını çıkartın
+```bash
+unzip gsmsetup.zip
+```
+/home/pi/gsmsetup dizinine gidin
 ```bash
 cd gsmsetup
 ```
-Kuruluma başlamadan önce bluetooth servislerini devre dışı bırakmak için aşağıda ki komutu çalıştırın.
+Tüm .sh uzantılı dosyalara +x yetkisi verin
 ```sh
-systemctl mask serial-getty@ttyAMA0.service
-```
-
-
-gsm-bootup.sh dosyasına +x modu ekleyin
-```sh
-chmod +x gsm-bootup.sh
-```
-install.sh dosyasına +x modu ekleyin
-```sh
-chmod +x install.sh
+sudo chmod +x *.sh
 ```
 sudo haklarıyla install.sh dosyasını çalıştırın.
 ```sh
