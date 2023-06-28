@@ -30,6 +30,8 @@ pi kullanıcısının şifresini girin daha sonra lazım olacak not alın.
 Bu ayarlar wifiye otomatik bağlanması için yapılmıştır. ssh ile bağlantı almak için yapılmaktadır. Monitörlü kurulumda wifiye monitör ile bağlanılabilir.  
 ### Gsm Modülün Kurulması
 Gsm modülün ilk kurulumunda internete ihtiyaç vardır bu yüzden wifi ile veya ethernet kablosu ile internete bağlayın.
+Önemli not : Çıkartılan gsmsetup isimli klasör mutlaka /home/pi dizininde olmalı ve kurulumdan sonra silinmemeli !
+
 
 gsmsetup.zip dosyasını raspberry pi'nin /home/pi dizinine aktarın 
 ```bash
@@ -37,8 +39,6 @@ wget https://github.com/bartinbu/gsmsetup/raw/main/gsmsetup.zip
 ```
 
 /home/pi dizininde terminal açın
-Önemli not : Çıkartılan gsmsetup isimli klasör mutlaka /home/pi dizininde olmalı ve kurulumdan sonra silinmemeli !
-
 Zip dosyasını çıkartın
 ```bash
 unzip gsmsetup.zip
