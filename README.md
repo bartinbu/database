@@ -33,8 +33,12 @@ Bu ayarlar wifiye otomatik bağlanması için yapılmıştır. ssh ile bağlant�
 ### Gsm Modülün Kurulması
 Gsm modülün ilk kurulumunda internete ihtiyaç vardır bu yüzden wifi ile veya ethernet kablosu ile internete bağlayın.
 
-/home/pi dizininde terminal açın
+gsmsetup.zip dosyasını raspberry pi'nin /home/pi dizinine aktarın 
+```bash
+scp 
+```
 
+/home/pi dizininde terminal açın
 Zip dosyasını çıkartın
 ```bash
 unzip gsmsetup.zip
