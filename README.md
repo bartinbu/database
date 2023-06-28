@@ -18,10 +18,8 @@
 ### Raspberry Pi kurulumu
 
 Raspberry pi OS other kısmından Raspberry Pi OS Lite (64-bit) olan versiyonu Raspberry pi imaj yöneticisi ile kurun.
-[Drive](https://drive.google.com/file/d/1MwOQPS_AYD92W2GKPYwThBw7UUbwXvsc/view?usp=sharing) linkinden kurulum dosylarını indirin ve arşivden çıkarın.
-
-Çıkartılan gsmsetup isimli klasör mutlaka masaüstünde olmalı ve kurulumdan sonra silinmemeli !
 Raspberrydeki kullanıcı adı mutlaka pi olmalı değiştirilirse çalışmayacaktır.
+
 
 ![Alt text](/Images/Resim1.png?raw=true "Optional Title")
 ![Alt text](/Images/Resim2.png?raw=true "Optional Title")
@@ -39,6 +37,8 @@ wget https://github.com/bartinbu/gsmsetup/raw/main/gsmsetup.zip
 ```
 
 /home/pi dizininde terminal açın
+Önemli not : Çıkartılan gsmsetup isimli klasör mutlaka /home/pi dizininde olmalı ve kurulumdan sonra silinmemeli !
+
 Zip dosyasını çıkartın
 ```bash
 unzip gsmsetup.zip
