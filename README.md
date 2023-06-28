@@ -58,6 +58,7 @@ sudo ./install.sh
 GSM shiled üzerindeki ışıklar yanmaya başlayacaktır. İnternet bağlantısı için hat takılı olmalıdır. Hat takılı değilken de kurulum yapılabilir.
 
 GSM bağlantısını kontrol etmek için pingtest.sh scriptini çalıştırabilirsiniz.(zorunlu değil) Eğer ppp0 arayüzü gelmiyorsa hat çekmiyordur çeken bir yerlerde kendisi otoatik olarak gelecektir. 
+<br> Eğer yine de gelmediyse yeniden başlatmayı deneyebilirsiniz.
 ```sh
 ./pingtest.sh
 ``` 
