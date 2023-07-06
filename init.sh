@@ -20,6 +20,7 @@ cat ~/.ssh/id_rsa.pub
 echo "-----------------------------------------Press enter after copy.--------------------------------------------"
 read pulse
 cd /home/pi/database
+sudo apt-get install python pip git
 git config --global init.defaultBranch origin $nodeName
 git config --global user.email "raspberrypi.bartin@gmail.com"
 git config --global user.name "bartinbu"
