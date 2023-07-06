@@ -94,7 +94,7 @@ def readFromFromRD_SMT_P_O(serialPort):
     serialPort.address         = 1        # this is the slave address number
     serialPort.mode = minimalmodbus.MODE_RTU # rtu or ascii mode
     serialPort.clear_buffers_before_each_transaction = True
-    return serialPort.read_registers(registeraddress=0,number_of_registers=2,functioncode=3)
+    return serialPort.read_register(registeraddress=0,number_of_decimals=1,functioncode=3,signed=True),serialPort.read_register(registeraddress=1,number_of_decimals=1,functioncode=3,signed=True)
 def readHumiditySensors(ports):
     sensorList = []
     for port in ports:
@@ -107,7 +107,7 @@ def readHumiditySensors(ports):
     sensorID = 0
     for sensor in sensorList:
         sensorID += 1
-        arr = readFromFromRD_SMT_P_O(sensor)
+        tempature,humidity = readFromFromRD_SMT_P_O(sensor)
         array = [str(arr[0]/10)+"%",str((((arr[1]/1000)*120)-40))]
         sensorResponse["Sensor"+str(sensorID)] = array
     return sensorResponse
