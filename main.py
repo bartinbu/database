@@ -108,7 +108,7 @@ def readHumiditySensors(ports):
     for sensor in sensorList:
         sensorID += 1
         tempature,humidity = readFromFromRD_SMT_P_O(sensor)
-        array = [str(arr[0]/10)+"%",str((((arr[1]/1000)*120)-40))]
+        array = [str(tempature)+"°",str(humidity)+"%"]
         sensorResponse["Sensor"+str(sensorID)] = array
     return sensorResponse
 def readDistanceSensors(ports):
