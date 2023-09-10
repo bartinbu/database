@@ -65,7 +65,7 @@ GSM bağlantısını kontrol etmek için pingtest.sh scriptini çalıştırabili
 ### Veri Tabanı deposunun kurulması
 Pi dizinine gidin
 ```git
-cd ~/pi 
+cd ~
 ``` 
 git kurulumunu yapın
 ```git
