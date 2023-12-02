@@ -86,7 +86,7 @@ def readFromULT_3040(serialPort):
     serialPort.close_port_after_each_call = True
     return serialPort.read_register(2,0,4)
 def readFromFromRD_SMT_P_O(serialPort):
-    serialPort.serial.baudrate = 9600  # baudrate
+    serialPort.serial.baudrate = 4800  # baudrate
     serialPort.serial.bytesize = 8
     serialPort.serial.parity   = serial.PARITY_NONE
     serialPort.serial.stopbits = 1
